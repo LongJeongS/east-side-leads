@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EastSide Leads · Customers ready to book, sent straight to your phone</title>
+<meta name="description" content="Our websites already rank on Google for your trade. When a customer calls, your phone rings. Leads for home services and specialty trades, billed only for real calls.">
+<meta property="og:title" content="EastSide Leads · Customers ready to book, sent straight to your phone">
+<meta property="og:description" content="Leads from ranking sites we already own. Only calls past 30 seconds bill. No contract.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..700&family=Newsreader:ital,opsz,wght@0,6..72,300..500;1,6..72,300..500&display=swap" rel="stylesheet">
+<style>
+  /* ---- Midnight Atelier tokens: swap here to re-theme ---- */
+  :root {
+    --night: #15202f; --night-2: #101927; --night-3: #0c141f;
+    --line: #e9e4d8;
+    --line-soft: rgba(233,228,216,.58);
+    --line-faint: rgba(233,228,216,.15);
+    --grid: rgba(233,228,216,.022);   /* background grid: barely-there */
+    --terra: #cf7a52;
+    --brass: #c2a367;
+    --ivory: #f4f0e6;
+    --navy-on-ivory: #1d2d44;
+  }
+  * { margin: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--night); color: var(--line); font: 17px/1.65 "Bricolage Grotesque", sans-serif; overflow-x: clip;
+    background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+    background-size: 44px 44px; }
+  .srf { font-family: "Newsreader", serif; font-optical-sizing: auto; }
+  img { max-width: 100%; }
+  a.cal { color: var(--brass); }
+
+  .tick { position: absolute; width: 18px; height: 18px; border-style: solid; border-color: var(--brass); border-width: 0; }
+  .tick.tl { top: -1px; left: -1px; border-top-width: 2px; border-left-width: 2px; }
+  .tick.tr { top: -1px; right: -1px; border-top-width: 2px; border-right-width: 2px; }
+  .tick.bl { bottom: -1px; left: -1px; border-bottom-width: 2px; border-left-width: 2px; }
+  .tick.br { bottom: -1px; right: -1px; border-bottom-width: 2px; border-right-width: 2px; }
+
+  /* ---------- nav ---------- */
+  nav { display: flex; justify-content: space-between; align-items: center; padding: 26px clamp(20px, 4vw, 48px); }
+  .wordmark { font-weight: 600; font-size: 20px; letter-spacing: .02em; color: var(--line); text-decoration: none; }
+  .wordmark span { color: var(--brass); }
+  nav .right { display: flex; align-items: center; gap: 26px; }
+  nav .tag { font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: var(--line-soft); }
+  .btn { display: inline-block; text-decoration: none; border-radius: 999px; font-weight: 600; font-family: inherit; cursor: pointer; border: 0; }
+  nav .btn { background: var(--line); color: var(--night-2); font-size: 15px; padding: 13px 28px; }
+  nav .btn:hover { background: #fff; }
+
+  /* ---------- hero: airy sheet, just the pitch ---------- */
+  .hero { max-width: 1180px; margin: 16px auto 0; padding: 0 clamp(20px, 4vw, 48px) 70px; }
+  .sheet { border: 1px solid var(--line-faint); background: rgba(16,25,39,.6); padding: clamp(44px, 7vw, 100px); position: relative; }
+  h1 { font-weight: 300; font-size: clamp(42px, 5.6vw, 84px); line-height: 1.04; letter-spacing: -0.03em; max-width: 12em; color: #fff; }
+  h1 .ann { position: relative; }
+  h1 .ann svg { position: absolute; left: -2%; bottom: -10px; width: 104%; height: 18px; color: var(--terra); }
+  .hero .sub { margin-top: 34px; max-width: 30em; font-size: 19.5px; color: var(--line-soft); font-weight: 300; }
+  .cta-row { margin-top: 46px; display: flex; align-items: center; gap: 26px; flex-wrap: wrap; }
+  .cta { background: var(--terra); color: #1c1108; font-weight: 700; font-size: 16.5px; padding: 18px 40px; border-radius: 999px; text-decoration: none; }
+  .cta:hover { background: #da8a63; }
+  .annot { font-family: "Newsreader", serif; font-style: italic; font-size: 19px; color: var(--brass); max-width: 240px; line-height: 1.35; }
+
+  /* ---------- shared ---------- */
+  section { padding: clamp(70px, 9vw, 110px) clamp(20px, 4vw, 48px); }
+  .wrap { max-width: 1180px; margin: 0 auto; }
+  h2 { font-weight: 300; font-size: clamp(32px, 3.6vw, 52px); line-height: 1.06; letter-spacing: -0.025em; color: #fff; text-wrap: balance; }
+  h2 .srf-i { font-family: "Newsreader", serif; font-style: italic; color: var(--terra); }
+  .lede { margin-top: 24px; font-size: 18px; color: var(--line-soft); font-weight: 300; max-width: 30em; }
+  .lede strong { font-weight: 600; color: var(--line); border-bottom: 2px solid var(--brass); }
+  .kicker { font-size: 10.5px; letter-spacing: .26em; text-transform: uppercase; color: var(--brass); margin-bottom: 18px; }
+
+  /* ---------- video ---------- */
+  .video { padding-top: 0; }
+  .video .frame { max-width: 760px; margin: 0 auto; border: 1px solid var(--line-faint); background: var(--night-3); position: relative; padding: 10px; }
+  .video .screen { aspect-ratio: 16/9; background: var(--night-2); display: grid; place-items: center; position: relative; }
+  .video .play { width: 74px; height: 74px; border-radius: 999px; border: 1px solid var(--brass); display: grid; place-items: center; background: rgba(194,163,103,.08); }
+  .video .cap { position: absolute; bottom: 16px; left: 20px; color: var(--line-soft); font-size: 13.5px; }
+
+  /* ---------- how it works (moved below the fold) ---------- */
+  .how h2, .how .kicker { text-align: center; }
+  .prints { margin: 56px auto 0; max-width: 1080px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 44px; }
+  .print { text-align: center; }
+  .print .cap { margin-top: 16px; font-size: 16px; font-weight: 600; color: #fff; }
+  .print .hand-cap { font-family: "Newsreader", serif; font-style: italic; font-size: 15.5px; color: var(--line-soft); margin-top: 3px; }
+  .ico { color: var(--line); }
+  .ico .reg { stroke: var(--line-faint); }
+  .ico .acc { stroke: var(--terra); }
+  .ico .brass { stroke: var(--brass); }
+
+  /* ---------- deliver ---------- */
+  .deliver .wrap { display: grid; grid-template-columns: 6fr 5fr; gap: clamp(40px, 6vw, 80px); align-items: center; }
+  .card { border: 1px solid var(--line-faint); background: rgba(233,228,216,.04); padding: 30px; position: relative; }
+  .card .tick { width: 14px; height: 14px; }
+  .card .head { font-size: 10.5px; letter-spacing: .24em; text-transform: uppercase; color: var(--line-soft); display: flex; justify-content: space-between; }
+  .card .head .live { color: var(--terra); }
+  .card .row { display: flex; gap: 16px; align-items: center; margin-top: 18px; }
+  .card .dot { width: 46px; height: 46px; border-radius: 999px; border: 1px solid var(--line-faint); color: var(--line); display: grid; place-items: center; flex: none; }
+  .card .who { font-weight: 600; font-size: 16.5px; color: #fff; }
+  .card .what { font-size: 14.5px; color: var(--line-soft); margin-top: 2px; }
+  .card .foot { margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--line-faint); font-family: "Newsreader", serif; font-style: italic; font-size: 16.5px; color: var(--brass); }
+
+  /* ---------- who we work with: the buyer finds their trade ---------- */
+  .who h2, .who .kicker { text-align: center; }
+  .trades { margin: 52px auto 0; max-width: 900px; display: grid; grid-template-columns: 1fr 1fr 1fr; }
+  .trade { padding: 18px 22px; border-top: 1px solid var(--line-faint); font-size: 16.5px; color: var(--line); display: flex; align-items: baseline; gap: 12px; }
+  .trade::before { content: ""; width: 7px; height: 7px; border: 1px solid var(--brass); transform: rotate(45deg); flex: none; position: relative; top: -2px; }
+  .trade.more { color: var(--line-soft); font-family: "Newsreader", serif; font-style: italic; }
+  .trades .trade:nth-last-child(-n+3) { border-bottom: 1px solid var(--line-faint); }
+
+  /* ---------- dashboard ---------- */
+  .dashsec .wrap { display: grid; grid-template-columns: 5fr 7fr; gap: clamp(40px, 6vw, 80px); align-items: center; }
+  .dash { border: 1px solid var(--line-faint); background: var(--night-3); position: relative; padding: 10px; }
+  .dash .bar { display: flex; align-items: center; gap: 6px; padding: 8px 6px 14px; }
+  .dash .bar i { width: 7px; height: 7px; border-radius: 999px; border: 1px solid var(--line-faint); display: block; }
+  .dash .bar span { margin-left: 8px; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--line-soft); }
+  .dash .screen { aspect-ratio: 16/8; background: var(--night-2); display: grid; place-items: center; }
+  .dash .screen p { font-size: 13.5px; color: var(--line-soft); padding: 0 32px; text-align: center; }
+
+  /* ---------- 30s ivory band ---------- */
+  .rule30 { background: var(--ivory); color: var(--navy-on-ivory); text-align: center; }
+  .rule30 .inner { max-width: 880px; margin: 0 auto; }
+  .rule30 p.big { font-family: "Newsreader", serif; font-weight: 300; font-size: clamp(30px, 4.2vw, 56px); line-height: 1.12; letter-spacing: -0.02em; text-wrap: balance; }
+  .rule30 p.big em { font-style: italic; color: #b4593a; }
+  .rule30 p.small { margin-top: 16px; font-size: 17px; color: rgba(29,45,68,.65); }
+
+  /* ---------- proof ---------- */
+  .proof { text-align: center; }
+  .proof .lede { margin-left: auto; margin-right: auto; }
+  .serp { margin: 44px auto 0; max-width: 820px; border: 1px solid var(--line-faint); background: var(--night-3); padding: 10px; text-align: left; position: relative; }
+  .serp .bar { display: flex; align-items: center; gap: 6px; padding: 8px 6px 14px; }
+  .serp .bar i { width: 7px; height: 7px; border-radius: 999px; border: 1px solid var(--line-faint); display: block; }
+  .serp .bar span { margin-left: 8px; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--line-soft); }
+  .serp .screen { aspect-ratio: 16/7; background: var(--night-2); display: grid; place-items: center; }
+  .serp .screen p { font-size: 13.5px; color: var(--line-soft); padding: 0 32px; text-align: center; }
+
+  /* ---------- pricing ---------- */
+  .pricing h2, .pricing .kicker { text-align: center; }
+  .pricing .cards { margin-top: 52px; display: grid; grid-template-columns: 1fr 1fr; gap: 28px; max-width: 980px; margin-left: auto; margin-right: auto; }
+  .price { border: 1px solid var(--line-faint); background: rgba(233,228,216,.03); padding: 40px; position: relative; }
+  .price.feature { border-color: var(--brass); }
+  .price h3 { font-family: "Newsreader", serif; font-weight: 400; font-size: 28px; color: #fff; }
+  .price .range { margin-top: 6px; font-family: "Newsreader", serif; font-style: italic; font-size: 18px; color: var(--line-soft); }
+  .price .range b { color: var(--brass); font-weight: 500; }
+  .price p.d { margin-top: 16px; font-size: 15.5px; color: var(--line-soft); }
+  .price ul { margin: 24px 0 0; padding: 0; list-style: none; }
+  .price li { padding: 10px 0; font-size: 15px; border-top: 1px solid var(--line-faint); display: flex; gap: 10px; align-items: baseline; }
+  .price li::before { content: ""; width: 14px; height: 1px; background: var(--brass); flex: none; position: relative; top: -4px; }
+  .price .btn { margin-top: 30px; font-size: 15.5px; padding: 15px 32px; }
+  .price .btn.solid { background: var(--terra); color: #1c1108; }
+  .price .btn.linebtn { background: transparent; color: var(--line); box-shadow: inset 0 0 0 1px var(--line-faint); }
+  .pricing .fine { margin-top: 30px; text-align: center; font-size: 14.5px; color: var(--line-soft); }
+
+  /* ---------- about ---------- */
+  .about h2, .about .kicker { text-align: center; }
+  .about .cards { margin-top: 52px; display: grid; grid-template-columns: 1fr 1fr; gap: 28px; max-width: 980px; margin-left: auto; margin-right: auto; }
+  .bio { border: 1px solid var(--line-faint); background: rgba(16,25,39,.5); padding: 38px; position: relative; }
+  .bio .ava { width: 64px; height: 64px; border-radius: 999px; border: 1px solid var(--brass); display: grid; place-items: center; font-family: "Newsreader", serif; font-size: 22px; color: var(--brass); }
+  .bio h3 { margin-top: 20px; font-family: "Newsreader", serif; font-weight: 400; font-size: 26px; color: #fff; }
+  .bio .role { margin-top: 4px; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--brass); }
+  .bio p.b { margin-top: 16px; font-size: 15.5px; color: var(--line-soft); font-weight: 300; }
+
+  /* ---------- reviews: Blake's agency, real link ---------- */
+  .reviews h2, .reviews .kicker { text-align: center; }
+  .reviews .lede { margin-left: auto; margin-right: auto; text-align: center; }
+  .reviews .quotes { margin: 52px auto 0; max-width: 1120px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 26px; align-items: stretch; }
+  @media (max-width: 900px) { .reviews .quotes { grid-template-columns: 1fr; } }
+  .quote { border: 1px solid var(--line-faint); background: rgba(233,228,216,.03); padding: 34px; position: relative; }
+  .quote .stars { color: var(--brass); font-size: 14px; letter-spacing: .2em; }
+  .quote p.q { margin-top: 16px; font-family: "Newsreader", serif; font-weight: 300; font-size: 19px; line-height: 1.55; color: var(--line); }
+  .quote .attr { margin-top: 18px; font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--line-soft); }
+  .reviews .linkrow { margin-top: 36px; text-align: center; }
+  .reviews .btn.gline { background: transparent; color: var(--line); box-shadow: inset 0 0 0 1px var(--line-faint); padding: 15px 32px; font-size: 15.5px; }
+  .reviews .btn.gline:hover { box-shadow: inset 0 0 0 1px var(--brass); }
+  /* quote cards render once real quotes are pasted; none ship empty */
+
+  /* ---------- faq ---------- */
+  .faq .wrap { max-width: 760px; }
+  .faq h2, .faq .kicker { text-align: center; }
+  .faq .list { margin-top: 44px; display: grid; gap: 12px; }
+  details { border: 1px solid var(--line-faint); background: rgba(233,228,216,.03); padding: 20px 26px; }
+  summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 17px; font-weight: 600; color: #fff; }
+  summary::-webkit-details-marker { display: none; }
+  summary .x { color: var(--brass); font-size: 22px; font-weight: 300; transition: transform .25s cubic-bezier(.16,1,.3,1); flex: none; }
+  details[open] summary .x { transform: rotate(45deg); }
+  details p { margin-top: 14px; font-size: 15.5px; color: var(--line-soft); font-weight: 300; }
+
+  /* ---------- final CTA ---------- */
+  .book { text-align: center; }
+  .book .inner { max-width: 760px; margin: 0 auto; border: 1px solid var(--line-faint); position: relative; padding: clamp(48px, 7vw, 80px) clamp(24px, 5vw, 60px); background: rgba(16,25,39,.6); }
+  .book p.sub2 { margin: 22px auto 0; font-size: 17.5px; color: var(--line-soft); font-weight: 300; max-width: 30em; }
+  .book .cta { margin-top: 36px; display: inline-block; }
+
+  /* ---------- footer ---------- */
+  footer { padding: 50px clamp(20px, 4vw, 48px) 26px; overflow: hidden; }
+  footer .row { display: flex; justify-content: space-between; align-items: baseline; font-size: 13.5px; color: var(--line-soft); max-width: 1180px; margin: 0 auto; }
+  footer .giant { font-family: "Newsreader", serif; font-weight: 300; font-size: clamp(70px, 13vw, 190px); line-height: .95; letter-spacing: -0.03em; color: rgba(233,228,216,.07); text-align: center; margin-top: 26px; user-select: none; }
+  footer .giant em { font-style: italic; }
+
+  /* ---------- section dividers + ivory inversions + mid CTA bar ---------- */
+  .divider { display: flex; align-items: center; max-width: 1180px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 48px); }
+  .divider::before, .divider::after { content: ""; flex: 1; height: 1px; background: var(--line-faint); }
+  .divider span { width: 8px; height: 8px; border: 1px solid var(--brass); transform: rotate(45deg); margin: 0 18px; flex: none; }
+
+  .inv { background: var(--ivory); color: var(--navy-on-ivory); }
+  .inv h2 { color: var(--navy-on-ivory); }
+  .inv .srf-i { color: #b4593a; }
+  .inv .kicker { color: #8a6f3c; }
+  .inv .lede { color: rgba(29,45,68,.7); }
+  .inv .lede strong { color: var(--navy-on-ivory); border-bottom-color: #a8834a; }
+  .inv .tick { border-color: #a8834a; }
+  .inv .trade { color: var(--navy-on-ivory); border-color: rgba(29,45,68,.16); }
+  .inv .trade::before { border-color: #b4593a; }
+  .inv .trade.more { color: rgba(29,45,68,.6); }
+  .inv .trades .trade:nth-last-child(-n+3) { border-bottom: 1px solid rgba(29,45,68,.16); }
+  .inv .bio { background: rgba(255,255,255,.55); border-color: rgba(29,45,68,.15); }
+  .inv .bio h3 { color: var(--navy-on-ivory); }
+  .inv .bio .role { color: #b4593a; }
+  .inv .bio p.b { color: rgba(29,45,68,.72); }
+  .inv .bio .ava { border-color: #b4593a; color: #b4593a; }
+
+  .ctabar { padding-top: 0; padding-bottom: 0; margin: clamp(60px, 8vw, 90px) auto; }
+  .ctabar .inner { max-width: 1180px; margin: 0 auto; border: 1px solid var(--line-faint); background: rgba(16,25,39,.6); position: relative; padding: 34px clamp(26px, 4vw, 52px); display: flex; align-items: center; justify-content: space-between; gap: 28px; }
+  .ctabar .txt { font-family: "Newsreader", serif; font-weight: 300; font-style: italic; font-size: clamp(21px, 2.2vw, 27px); color: var(--line); }
+  .ctabar .txt b { color: var(--brass); font-weight: 400; }
+
+  .reveal { opacity: 0; transform: translateY(16px); transition: opacity .8s cubic-bezier(.16,1,.3,1), transform .8s cubic-bezier(.16,1,.3,1); }
+  .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) { .reveal { transition: none; opacity: 1; transform: none; } }
+
+  @media (max-width: 900px) {
+    nav .tag { display: none; }
+    .prints { grid-template-columns: 1fr; gap: 34px; }
+    .deliver .wrap, .dashsec .wrap { grid-template-columns: 1fr; }
+    .pricing .cards, .about .cards { grid-template-columns: 1fr; }
+    .trades { grid-template-columns: 1fr; }
+    .trades .trade:nth-last-child(-n+3) { border-bottom: 0; }
+    .trades .trade:last-child { border-bottom: 1px solid var(--line-faint); }
+    .ctabar .inner { flex-direction: column; text-align: center; gap: 22px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="wordmark" href="#">EastSide<span>Leads</span></a>
+  <div class="right"><span class="tag">Leads for the trades</span><a class="btn" href="https://calendly.com/bmlocalleadgen/30-minute-meeting-lead-generation-demo-info" target="_blank" rel="noopener">Book a call</a></div>
+</nav>
+
+<header class="hero">
+  <div class="sheet">
+    <span class="tick tl"></span><span class="tick tr"></span><span class="tick bl"></span><span class="tick br"></span>
+    <h1 class="reveal in">Customers ready to book, <span class="ann">sent straight to your phone.<svg viewBox="0 0 300 18" fill="none" preserveAspectRatio="none"><path d="M4 11 C70 15 150 7 296 11" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg></span></h1>
+    <p class="sub reveal in">Our websites already rank on Google for your trade. When a customer finds one and calls, your phone rings. Nothing to build, nothing to wait for.</p>
+    <div class="cta-row reveal in">
+      <a class="cta" href="https://calendly.com/bmlocalleadgen/30-minute-meeting-lead-generation-demo-info" target="_blank" rel="noopener">Book an intro call</a>
+      <span class="annot">no contract; only real calls bill</span>
+    </div>
+  </div>
+</header>
+
+<section class="video">
+  <div class="frame reveal">
+    <span class="tick tl"></span><span class="tick br"></span>
+    <div class="screen">
+      <div class="play"><svg width="22" height="22" viewBox="0 0 24 24" fill="#c2a367"><path d="M8 5v14l11-7z"/></svg></div>
+      <span class="cap">Meet the people behind your leads · 90 seconds</span>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><span></span></div>
+
+<section class="how">
+  <div class="wrap">
+    <div class="kicker reveal">How it works</div>
+    <h2 class="reveal">The sites are live. <span class="srf-i">You plug into them.</span></h2>
+    <div class="prints">
+      <div class="print reveal">
+        <svg class="ico" width="92" height="92" viewBox="0 0 96 96" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle class="reg" cx="48" cy="48" r="45" stroke-dasharray="2 5"/>
+          <path class="reg" d="M48 2v8M48 86v8M2 48h8M86 48h8"/>
+          <rect x="20" y="24" width="56" height="42" rx="2"/>
+          <path d="M20 34h56M27 29h.01M33 29h.01M39 29h.01"/>
+          <path d="M28 44h24M28 52h30"/>
+          <circle class="brass" cx="64" cy="52" r="7"/>
+          <path class="brass" d="M64 49v6M61 52h6"/>
+          <path class="acc" d="M38 66v8M48 66v6M58 66v8"/>
+        </svg>
+        <div class="cap">Our sites already rank</div>
+        <div class="hand-cap">built, ranked, and owned by us</div>
+      </div>
+      <div class="print reveal">
+        <svg class="ico" width="92" height="92" viewBox="0 0 96 96" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle class="reg" cx="48" cy="48" r="45" stroke-dasharray="2 5"/>
+          <path class="reg" d="M48 2v8M48 86v8M2 48h8M86 48h8"/>
+          <circle cx="43" cy="41" r="19"/>
+          <circle class="reg" cx="43" cy="41" r="12"/>
+          <path d="M57 55l16 16"/>
+          <path class="brass" d="M73 71l4 4"/>
+          <path class="acc" d="M37 41h12M43 35v12"/>
+        </svg>
+        <div class="cap">Customers find them</div>
+        <div class="hand-cap">searching your trade, your area</div>
+      </div>
+      <div class="print reveal">
+        <svg class="ico" width="92" height="92" viewBox="0 0 96 96" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle class="reg" cx="48" cy="48" r="45" stroke-dasharray="2 5"/>
+          <path class="reg" d="M48 2v8M48 86v8M2 48h8M86 48h8"/>
+          <rect x="30" y="20" width="26" height="52" rx="5"/>
+          <path d="M38 66h10"/>
+          <path class="acc" d="M62 34c5 3.5 5 10.5 0 14"/>
+          <path class="brass" d="M68 28c9 6.5 9 21.5 0 28"/>
+        </svg>
+        <div class="cap">Your phone rings</div>
+        <div class="hand-cap">calls and forms, in real time</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><span></span></div>
+
+<section class="deliver">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="kicker">What we deliver</div>
+      <h2>Not a lead list. <span class="srf-i">A customer, calling you.</span></h2>
+      <p class="lede">Every lead searched for your service, found one of our sites, and <strong>reached out to buy</strong>. Your job is answering.</p>
+    </div>
+    <div class="card reveal">
+      <span class="tick tl"></span><span class="tick br"></span>
+      <div class="head"><span>Incoming call · routed to you</span><span class="live">Live</span></div>
+      <div class="row">
+        <div class="dot"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.3 0 .7-.2 1l-2.3 2.2Z"/></svg></div>
+        <div>
+          <div class="who">Quote request: driveway sandblasting</div>
+          <div class="what">"When could you come take a look?"</div>
+        </div>
+      </div>
+      <div class="foot">Rings your phone the moment they call.</div>
+    </div>
+  </div>
+</section>
+
+<section class="who inv">
+  <div class="wrap">
+    <div class="kicker reveal">Who we work with</div>
+    <h2 class="reveal">Find <span class="srf-i">your trade</span></h2>
+    <div class="trades reveal">
+      <div class="trade">Roofing</div>
+      <div class="trade">Fencing</div>
+      <div class="trade">Pressure washing</div>
+      <div class="trade">Exterior cleaning</div>
+      <div class="trade">Sandblasting</div>
+      <div class="trade">Tennis court resurfacing</div>
+      <div class="trade">Paving &amp; sealcoating</div>
+      <div class="trade">Tree services</div>
+      <div class="trade more">Yours? Ask us.</div>
+    </div>
+  </div>
+</section>
+
+<section class="dashsec">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="kicker">Nothing hidden</div>
+      <h2>Every call, <span class="srf-i">on the record.</span></h2>
+      <p class="lede">Your dashboard shows <strong>every call, recorded</strong>, and every form, timestamped. Check us any time.</p>
+    </div>
+    <div class="dash reveal">
+      <span class="tick tl"></span><span class="tick br"></span>
+      <div class="bar"><i></i><i></i><i></i><span>Your lead dashboard</span></div>
+      <div class="screen"><p>Dashboard screenshot placeholder: every call recorded, every lead visible.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="rule30">
+  <div class="inner reveal">
+    <p class="big srf">You pay when a real customer stays on the line <em>past 30 seconds.</em></p>
+    <p class="small">Wrong numbers and robocalls don't count.</p>
+  </div>
+</section>
+
+<section class="ctabar">
+  <div class="inner reveal">
+    <span class="tick tl"></span><span class="tick br"></span>
+    <span class="txt">Wondering what your trade's rate is? <b>The call answers it.</b></span>
+    <a class="cta" href="https://calendly.com/bmlocalleadgen/30-minute-meeting-lead-generation-demo-info" target="_blank" rel="noopener">Book an intro call</a>
+  </div>
+</section>
+
+<section class="proof">
+  <div class="wrap">
+    <div class="kicker reveal">Proof</div>
+    <h2 class="reveal">Don't take <span class="srf-i">our word for it.</span></h2>
+    <p class="lede reveal">One of our sites, <strong>ranking on Google today</strong>. We'll show you the live site on the call.</p>
+    <div class="serp reveal">
+      <span class="tick tl"></span><span class="tick br"></span>
+      <div class="bar"><i></i><i></i><i></i><span>google.com · search results</span></div>
+      <div class="screen"><p>Blurred real ranking screenshot pending: domain blurred, position visible.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><span></span></div>
+
+<section class="pricing">
+  <div class="wrap">
+    <div class="kicker reveal">Pricing</div>
+    <h2 class="reveal">Two ways to <span class="srf-i">work together</span></h2>
+    <div class="cards">
+      <div class="price reveal">
+        <span class="tick tl"></span><span class="tick br"></span>
+        <h3>Pay per lead</h3>
+        <p class="range">Typically <b>$X–$Y</b> per qualified call</p>
+        <p class="d">Only qualified calls bill. No contract, no monthly minimum.</p>
+        <ul>
+          <li>Yours the moment you answer</li>
+          <li>30-second rule on every call</li>
+          <li>Stop any time</li>
+        </ul>
+        <a class="btn linebtn" href="https://calendly.com/bmlocalleadgen/30-minute-meeting-lead-generation-demo-info" target="_blank" rel="noopener">Get your trade's rate</a>
+      </div>
+      <div class="price feature reveal">
+        <span class="tick tl"></span><span class="tick br"></span>
+        <h3>Retainer</h3>
+        <p class="range">From <b>$Z</b> per month</p>
+        <p class="d">One flat monthly rate. Every lead your site produces is yours alone.</p>
+        <ul>
+          <li>All calls and forms from your site</li>
+          <li>One number you know in advance, busy or slow</li>
+          <li>Month to month, stop any time</li>
+        </ul>
+        <a class="btn solid" href="https://calendly.com/bmlocalleadgen/30-minute-meeting-lead-generation-demo-info" target="_blank" rel="noopener">Get your trade's rate</a>
+      </div>
+    </div>
+    <p class="fine">Your exact rate depends on your trade and area. You'll have it before the call ends, and you can say no.</p>
+  </div>
+</section>
+
+<section class="about inv">
+  <div class="wrap">
+    <div class="kicker reveal">Who's behind this</div>
+    <h2 class="reveal">Two people, <span class="srf-i">not a platform.</span></h2>
+    <div class="cards">
+      <div class="bio reveal">
+        <span class="tick tl"></span><span class="tick br"></span>
+        <div class="ava srf">B</div>
+        <h3>Blake Mitchell</h3>
+        <div class="role">The ranking side</div>
+        <p class="b">Seven years in local SEO, and runs an SEO agency generating high six figures a year. The sites behind your leads rank on that same playbook.</p>
+      </div>
+      <div class="bio reveal">
+        <span class="tick tl"></span><span class="tick br"></span>
+        <div class="ava srf">J</div>
+        <h3>Jeong</h3>
+        <div class="role">The operations side</div>
+        <p class="b">Serial entrepreneur with an eight figure raise and exit, and a Forbes 30 Under 30 alum. Builds the systems that route your calls and keep the billing honest.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="reviews">
+  <div class="wrap">
+    <div class="kicker reveal">Reviews</div>
+    <h2 class="reveal">In their <span class="srf-i">words</span></h2>
+    <p class="lede reveal">Blake's clients hired him to rank their sites and bring in leads. EastSide Leads runs the <strong>same playbook on our own sites</strong>, and the leads go to you.</p>
+    <div class="quotes reveal">
+      <div class="quote">
+        <span class="tick tl"></span><span class="tick br"></span>
+        <div class="stars">★★★★★</div>
+        <p class="q">"Within the first 30 days we saw increased traffic to our page, within the first 90 days we had leads pouring in, we couldn't keep up."</p>
+        <div class="attr">Athletics company</div>
+      </div>
+      <div class="quote">
+        <span class="tick tl"></span><span class="tick br"></span>
+        <div class="stars">★★★★★</div>
+        <p class="q">"Blake understands small businesses needs, and helped us grow our small clinic with less stress and uncertainty."</p>
+        <div class="attr">Counselling clinic</div>
+      </div>
+      <div class="quote">
+        <span class="tick tl"></span><span class="tick br"></span>
+        <div class="stars">★★★★★</div>
+        <p class="q">"If you're looking for a professional SEO that knows his stuff and can cut through the B.S. I can't recommend Blake enough."</p>
+        <div class="attr">Repeat client</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><span></span></div>
+
+<section class="faq">
+  <div class="wrap">
+    <div class="kicker reveal">Fair questions</div>
+    <h2 class="reveal">Asked by every buyer <span class="srf-i">we talk to</span></h2>
+    <div class="list reveal">
+      <details open>
+        <summary>Do you build me a website?<span class="x">+</span></summary>
+        <p>No, and that's the point. The websites are ours, already live and already ranking. There's nothing to build and no SEO project to wait on. You plug into the calls they produce, starting now.</p>
+      </details>
+      <details>
+        <summary>Are the leads really exclusive?<span class="x">+</span></summary>
+        <p>On a retainer, everything your site produces routes to you alone. On pay per lead, a live call is yours the moment you answer it, and we never resell a lead or pass it along afterward.</p>
+      </details>
+      <details>
+        <summary>What counts as a qualified lead?<span class="x">+</span></summary>
+        <p>A phone call that lasts longer than 30 seconds, or a form fill with a real project behind it. Wrong numbers, robocalls, and hang-ups don't bill. Every call is recorded, so you can hear exactly what you paid for.</p>
+      </details>
+      <details>
+        <summary>What trades and areas do you cover?<span class="x">+</span></summary>
+        <p>We run sites across home services and specialty trades, and we open new trades and areas regularly. The fastest way to find out is a quick call. If your area's taken, we'll tell you straight.</p>
+      </details>
+      <details>
+        <summary>How fast do leads arrive?<span class="x">+</span></summary>
+        <p>In real time. When a customer calls, your phone rings. When they fill out a form, it lands in your inbox the same minute.</p>
+      </details>
+      <details>
+        <summary>Is there a contract?<span class="x">+</span></summary>
+        <p>No. Pay-per-lead has no contract and no minimum. Retainers run month to month. If it's not working, you stop.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="book" id="book">
+  <div class="inner reveal">
+    <span class="tick tl"></span><span class="tick tr"></span><span class="tick bl"></span><span class="tick br"></span>
+    <div class="kicker">Availability</div>
+    <h2>See if your trade <span class="srf-i">and area are open.</span></h2>
+    <p class="sub2">Site capacity is limited by trade and area. If yours is open, we'll tell you how it works. If it's taken, we'll say so.</p>
+    <a class="cta" href="https://calendly.com/bmlocalleadgen/30-minute-meeting-lead-generation-demo-info" target="_blank" rel="noopener">Book a call</a>
+  </div>
+</section>
+
+<footer>
+  <div class="row">
+    <span>EastSide Leads</span>
+    <span>Leads for the trades, delivered directly.</span>
+  </div>
+  <div class="giant srf" aria-hidden="true">EastSide<em>Leads</em></div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((es) => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>

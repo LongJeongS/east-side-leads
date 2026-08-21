@@ -116,6 +116,8 @@
   .dash .bar span { margin-left: 8px; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--line-soft); }
   .dash .screen { aspect-ratio: 16/8; background: var(--night-2); display: grid; place-items: center; }
   .dash .screen p { font-size: 13.5px; color: var(--line-soft); padding: 0 32px; text-align: center; }
+  .dash .screen.has-img { aspect-ratio: auto; display: block; }
+  .dash .screen.has-img img { width: 100%; display: block; }
 
   /* ---------- 30s ivory band ---------- */
   .rule30 { background: var(--ivory); color: var(--navy-on-ivory); text-align: center; }
@@ -371,7 +373,7 @@
     <div class="dash reveal">
       <span class="tick tl"></span><span class="tick br"></span>
       <div class="bar"><i></i><i></i><i></i><span>Your lead dashboard</span></div>
-      <div class="screen"><p>Dashboard screenshot placeholder: every call recorded, every lead visible.</p></div>
+      <div class="screen has-img"><img src="assets/images/callscaler.png" alt="Lead dashboard showing call volume, qualified calls, call value, and lead quality scores" loading="lazy"></div>
     </div>
   </div>
 </section>
@@ -499,6 +501,10 @@
     <h2 class="reveal">Asked by every buyer <span class="srf-i">we talk to</span></h2>
     <div class="list reveal">
       <details open>
+        <summary>How do you generate the leads?<span class="x">+</span></summary>
+        <p>From our own portfolio of local websites that already rank on Google for trade searches. We build them, we own them, and we've been ranking them for years. You get what they produce.</p>
+      </details>
+      <details>
         <summary>Do you build me a website?<span class="x">+</span></summary>
         <p>No, and that's the point. The websites are ours, already live and already ranking. There's nothing to build and no SEO project to wait on. You plug into the calls they produce, starting now.</p>
       </details>
@@ -508,7 +514,7 @@
       </details>
       <details>
         <summary>What counts as a qualified lead?<span class="x">+</span></summary>
-        <p>A phone call that lasts longer than 30 seconds, or a form fill with a real project behind it. Wrong numbers, robocalls, and hang-ups don't bill. Every call is recorded, so you can hear exactly what you paid for.</p>
+        <p>A phone call that lasts longer than 30 seconds, or a form fill. Wrong numbers, spam, and robocalls don't bill. Every call is recorded, so you can hear exactly what you paid for.</p>
       </details>
       <details>
         <summary>What trades and areas do you cover?<span class="x">+</span></summary>
@@ -521,6 +527,10 @@
       <details>
         <summary>Is there a contract?<span class="x">+</span></summary>
         <p>No. Pay-per-lead has no contract and no minimum. Retainers run month to month. If it's not working, you stop.</p>
+      </details>
+      <details>
+        <summary>Can I refer someone?<span class="x">+</span></summary>
+        <p>Please do. Reach out at <a class="cal" href="mailto:seo@blakemitchell.ca">seo@blakemitchell.ca</a> for details on our referral program and revenue sharing.</p>
       </details>
     </div>
   </div>
@@ -539,7 +549,7 @@
 <footer>
   <div class="row">
     <span>EastSide Leads</span>
-    <span>Leads for the trades, delivered directly.</span>
+    <span>Leads for the trades · <a class="cal" href="mailto:seo@blakemitchell.ca" style="color:inherit">seo@blakemitchell.ca</a></span>
   </div>
   <div class="giant srf" aria-hidden="true">EastSide<em>Leads</em></div>
 </footer>

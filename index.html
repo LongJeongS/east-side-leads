@@ -157,7 +157,7 @@
   .about h2, .about .kicker { text-align: center; }
   .about .cards { margin-top: 52px; display: grid; grid-template-columns: 1fr 1fr; gap: 28px; max-width: 980px; margin-left: auto; margin-right: auto; }
   .bio { border: 1px solid var(--line-faint); background: rgba(16,25,39,.5); padding: 38px; position: relative; }
-  .bio .ava { width: 64px; height: 64px; border-radius: 999px; border: 1px solid var(--brass); display: grid; place-items: center; font-family: "Newsreader", serif; font-size: 22px; color: var(--brass); }
+  .bio .ava-img { width: 72px; height: 72px; border-radius: 999px; object-fit: cover; border: 2px solid var(--brass); display: block; }
   .bio h3 { margin-top: 20px; font-family: "Newsreader", serif; font-weight: 400; font-size: 26px; color: #fff; }
   .bio .role { margin-top: 4px; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--brass); }
   .bio p.b { margin-top: 16px; font-size: 15.5px; color: var(--line-soft); font-weight: 300; }
@@ -219,7 +219,7 @@
   .inv .bio h3 { color: var(--navy-on-ivory); }
   .inv .bio .role { color: #b4593a; }
   .inv .bio p.b { color: rgba(29,45,68,.72); }
-  .inv .bio .ava { border-color: #b4593a; color: #b4593a; }
+  .inv .bio .ava-img { border-color: #b4593a; }
 
   .ctabar { padding-top: 0; padding-bottom: 0; margin: clamp(60px, 8vw, 90px) auto; }
   .ctabar .inner { max-width: 1180px; margin: 0 auto; border: 1px solid var(--line-faint); background: rgba(16,25,39,.6); position: relative; padding: 34px clamp(26px, 4vw, 52px); display: flex; align-items: center; justify-content: space-between; gap: 28px; }
@@ -449,14 +449,14 @@
     <div class="cards">
       <div class="bio reveal">
         <span class="tick tl"></span><span class="tick br"></span>
-        <div class="ava srf">B</div>
+        <img class="ava-img" src="assets/images/blake.jpg" alt="Blake Mitchell" width="72" height="72">
         <h3>Blake Mitchell</h3>
         <div class="role">The ranking side</div>
         <p class="b">Seven years in local SEO, and runs an SEO agency generating high six figures a year. The sites behind your leads rank on that same playbook.</p>
       </div>
       <div class="bio reveal">
         <span class="tick tl"></span><span class="tick br"></span>
-        <div class="ava srf">J</div>
+        <img class="ava-img" src="assets/images/jeong.jpg" alt="Jeong" width="72" height="72">
         <h3>Jeong</h3>
         <div class="role">The operations side</div>
         <p class="b">Serial entrepreneur with an eight figure raise and exit, and a Forbes 30 Under 30 alum. Builds the systems that route your calls and keep the billing honest.</p>

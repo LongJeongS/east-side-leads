@@ -205,6 +205,9 @@
   footer .row { display: flex; justify-content: space-between; align-items: baseline; font-size: 13.5px; color: var(--line-soft); max-width: 1180px; margin: 0 auto; }
   footer .giant { font-family: "Newsreader", serif; font-weight: 300; font-size: clamp(70px, 13vw, 190px); line-height: .95; letter-spacing: -0.03em; color: rgba(233,228,216,.07); text-align: center; margin-top: 26px; user-select: none; }
   footer .giant em { font-style: italic; }
+  footer .row { flex-wrap: wrap; gap: 8px 28px; }
+  footer .row.legal { margin-top: 14px; font-size: 13.5px; }
+  footer .row.legal a { color: inherit; }
 
   /* ---------- section dividers + ivory inversions + mid CTA bar ---------- */
   .divider { display: flex; align-items: center; max-width: 1180px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 48px); }
@@ -562,6 +565,10 @@
   <div class="row">
     <span>EastEnd Growth</span>
     <span>Leads for the trades · <a class="cal" href="mailto:seo@blakemitchell.ca" style="color:inherit">seo@blakemitchell.ca</a></span>
+  </div>
+  <div class="row legal">
+    <span>© 2026 Gooderham Ventures Inc.</span>
+    <span><a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a></span>
   </div>
   <div class="giant srf" aria-hidden="true">EastEnd<em>Growth</em></div>
 </footer>
